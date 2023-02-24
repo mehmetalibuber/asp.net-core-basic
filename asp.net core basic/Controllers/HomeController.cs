@@ -17,12 +17,20 @@ namespace asp.net_core_basic.Controllers
         {
             return View();
         }
-
-        public IActionResult Privacy()
+        public IActionResult Hizmetler()
         {
             return View();
         }
 
+        public IActionResult Hakkimda()
+        {
+            return View();
+        }
+        public IActionResult Iletisim()
+        {
+            return View();
+
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

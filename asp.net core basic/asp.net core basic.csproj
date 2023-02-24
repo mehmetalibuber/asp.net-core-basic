@@ -7,4 +7,22 @@
     <RootNamespace>asp.net_core_basic</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Views\Home\Index1.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\Index - Kopyala.cshtml" />
+    <Content Remove="Views\Home\Index1.cshtml" />
+    <Content Remove="Views\Home\Privacy.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Home\htmlpage.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.12" />
+  </ItemGroup>
+
 </Project>

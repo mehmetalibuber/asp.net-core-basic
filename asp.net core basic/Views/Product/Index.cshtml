@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    // int a = 10;
+}
+@model ProductPageViewModel
+
+<div class="container">
+    <div class="d-flex row justify-content-center pt-5 align-items-center">
+        @{
+            //  var sortedProducts = Model.Where(x => x.Id == 1 || x.Id == 2).ToArray(); // id'si 1 ve 2 olanı alır
+            //  var sortedProducts = Model.TakeLast(3); //sondan 3 alır
+            // var sortedProducts = Model.Take(3);      // baştan3 alır
+           // var sortedProducts = Model.Where(x => x.Data?.CustomerAge == 25).ToList();
+
+            @*foreach (var item in sortedProducts)
+            {
+                <span>@item.Name</span>
+            }*@
+
+            <span>@Model.Message</span>
+        }
+    </div>
+</div>

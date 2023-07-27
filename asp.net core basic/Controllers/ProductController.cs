@@ -1,11 +1,29 @@
 ﻿using asp.net_core_basic.Models;
+using asp.net_core_basic.Services;
 using Microsoft.AspNetCore.Mvc;
 namespace asp.net_core_basic.Controllers
 
 {
     public class ProductController : Controller
     {
+        //json placeholder data
+        private readonly JsonPlaceholderService _jsonPlaceholderService;
+        public ProductController(JsonPlaceholderService jsonPlaceholderService)
+        {
+            _jsonPlaceholderService = jsonPlaceholderService;
+        }
+        [HttpGet("posts")]
+        public async Task<IActionResult> GetPosts()
+        {
+            var posts = await _jsonPlaceholderService.GetPosts();
+            if (posts == null)
+            {
+                return NotFound();
+            }
+            return Ok(posts);
+        }
 
+        // views
         public IActionResult Index()
         {
             List<Product> product = new List<Product>();
@@ -21,7 +39,6 @@ namespace asp.net_core_basic.Controllers
                 }
             };
             product.Add(pro1);
-
             var pro2 = new Product()
             {
                 Name = "product name 2",
@@ -33,7 +50,6 @@ namespace asp.net_core_basic.Controllers
                 }
             };
             product.Add(pro2);
-
             var pro3 = new Product()
             {
                 Name = "product name 3",
@@ -69,13 +85,18 @@ namespace asp.net_core_basic.Controllers
             product.Add(pro5);
 
             // getMessage() metodu çağrılarak mesajı al
-            string message = getMessage("okkey");
+            string message = getMessage("ok");
+
+            // get json data
+
+
+
 
             // ViewModel oluşturup verileri ata 
             var viewModel = new ProductPageViewModel
             {
                 Products = product,
-                Message = message
+                Message = message,
             };
 
             return View(viewModel);

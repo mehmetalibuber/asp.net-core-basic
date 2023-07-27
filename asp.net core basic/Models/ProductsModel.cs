@@ -16,5 +16,18 @@
     {
         public List<Product>? Products { get; set; }
         public string? Message { get; set; }
+        public List<Post>? JsonData { get; set; }
+
+        public static implicit operator ProductPageViewModel(ProductPageViewModel v)
+        {
+            throw new NotImplementedException();
+        }
+    }
+    public class Post
+    {
+        public int? Id { get; set; }
+        public string? Title { get; set; }
+        public string? Body { get; set; }
+        public int? UserId { get; set; }
     }
 }

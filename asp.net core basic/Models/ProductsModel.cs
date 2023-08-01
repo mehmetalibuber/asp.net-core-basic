@@ -17,11 +17,6 @@
         public List<Product>? Products { get; set; }
         public string? Message { get; set; }
         public List<Post>? JsonData { get; set; }
-
-        public static implicit operator ProductPageViewModel(ProductPageViewModel v)
-        {
-            throw new NotImplementedException();
-        }
     }
     public class Post
     {

@@ -22,11 +22,10 @@
             // <span>@Model.Message</span>
 
 
-            foreach (var json in Model.JsonData)
+            foreach (var json in Model.Products.Take(5))
             {
-                <span>@json.Title</span>
+                <span>@json.Name</span>
             }
-
         }
 
     </div>

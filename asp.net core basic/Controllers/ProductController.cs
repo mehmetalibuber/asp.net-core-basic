@@ -24,7 +24,7 @@ namespace asp.net_core_basic.Controllers
         }
 
         // views
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             List<Product> product = new List<Product>();
 
@@ -85,10 +85,10 @@ namespace asp.net_core_basic.Controllers
             product.Add(pro5);
 
             // getMessage() metodu çağrılarak mesajı al
-            string message = getMessage("ok");
+            string message = GetMessage("ok");
 
             // get json data
-
+            IActionResult result = await GetPosts(); // GetPosts() metodunu çağırıyoruz.
 
 
 
@@ -97,12 +97,13 @@ namespace asp.net_core_basic.Controllers
             {
                 Products = product,
                 Message = message,
+                //JsonData = (List<Post>)result
             };
 
             return View(viewModel);
         }
 
-        public string getMessage(string msg)
+        public string GetMessage(string msg)
         {
             string message;
             if (msg == "ok")
